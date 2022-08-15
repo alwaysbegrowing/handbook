@@ -41,14 +41,12 @@ To compensate investors for the default risk taken, DAOs can elect to make their
 **Figure 1:** Value of convertible bond. Assumes price of collateral asset is 1 USD at issuance and non-convertible bond is valued at 1 USD.
 
 ## Bond offering
-A bond offering constitutes the initial pricing, issuance, and sale of bonds. To start a bond offering, bond issuers choose the following parameters, among others.
+A bond offering constitutes the initial pricing, issuance, and sale of bonds. 
 
-- Auction period
-  - Start and end datetime of the bond offering
-- Funding threshold
-  - Desired borrow amount
-- APR cap
-  - Maximum interest rate issuer is willing to pay
+### Issuance
+To start a bond offering, bond issuers choose the following parameters, among others.
+- Bond Amount 
+  - Number of bonds to issue
 - Term length
   - Amount of time until bond matures
 - Collateral
@@ -56,9 +54,17 @@ A bond offering constitutes the initial pricing, issuance, and sale of bonds. To
 - Convertibility
   - Whether or not the bonds will be redeemable for the collateral provided
 
-Once the parameters are chosen and the required assets are deposited, the debt auction is scheduled.
+Once the parameters are chosen and the required assets are deposited, bond tokens are minted to the issuer.
 
 ### Auction
+Once the bond tokens are created the issuer has the ability to sell the bonds. They choose the following parameters. 
+- Auction period
+  - Start and end datetime of the bond offering
+- Funding threshold
+  - Minimum amount to raise
+- APR cap
+  - Maximum interest rate issuer is willing to pay
+
 The debt offering is structured as a batch auction where bidders submit public bids with their desired allocation and interest rate. At the auction clearing, the bond interest rate is calculated. Bids are included in the order of lowest interest rate to highest with a higher bid amount breaking ties. The minimum interest rate required to reach the funding threshold is chosen. As shown in Figure 2, this is where supply and demand intersect. This is the final rate for all participants. Bidders who specified an interest rate lower than or equal to the final clearing interest rate receive bonds at the clearing interest rate. Bidders that specified an interest rate higher than the final clearing interest rate do not receive any bonds and have their funds refunded.
 
 ![auction chart](assets/auction_chart.png)
